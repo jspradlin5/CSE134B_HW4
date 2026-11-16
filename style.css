@@ -393,3 +393,46 @@ main {
         max-width: 100%;
     }
 }
+
+
+/* Homework 4 Part 3: JavaScript feedback */
+
+.form-feedback {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-feedback h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.field-error {
+    display: block;
+    color: #b3261e;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.field-error[hidden],
+#js-feedback[hidden] {
+    display: none;
+}
+
+.form-error-message {
+    color: #b3261e;
+    font-weight: bold;
+}
+
+.form-info-warning {
+    color: #9a5800;
+    font-weight: bold;
+}
+
+.form-info-limit {
+    color: #b3261e;
+    font-weight: bold;
+}
