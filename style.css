@@ -436,3 +436,107 @@ main {
     color: #b3261e;
     font-weight: bold;
 }
+
+
+/* Homework 4 Part 4: Theme switching */
+
+/* Light mode uses the existing :root colors. */
+
+/* Dark mode overrides shared CSS variables. */
+:root[data-theme="dark"] {
+    --primary-color: #a9cdf5;
+    --secondary-color: #80c5ff;
+    --background-color: #121a27;
+    --text-color: #edf2f8;
+    --card-color: #202d40;
+    --border-color: #52657e;
+}
+
+/* Header and footer use darker surfaces in dark mode */
+body > header,
+body > footer {
+    background-color: #17365d;
+    color: #ffffff;
+}
+
+:root[data-theme="dark"] body > header,
+:root[data-theme="dark"] body > footer {
+    background-color: #0a1220;
+}
+
+/* Keep navigation links readable */
+nav a {
+    color: #ffffff;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+    background-color: #2874a6;
+}
+
+/* Make form controls readable in both themes */
+.form-field input,
+.form-field textarea,
+input,
+textarea,
+select {
+    background-color: var(--card-color);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+/* Readable dark-mode validation styles */
+:root[data-theme="dark"] .form-field input:user-invalid,
+:root[data-theme="dark"] .form-field textarea:user-invalid {
+    background-color: #44252b;
+    color: #ffffff;
+    border-color: #ff9e9e;
+}
+
+:root[data-theme="dark"] .form-field input:user-valid,
+:root[data-theme="dark"] .form-field textarea:user-valid {
+    background-color: #193a32;
+    border-color: #85dfac;
+}
+
+:root[data-theme="dark"] .field-error,
+:root[data-theme="dark"] .form-error-message,
+:root[data-theme="dark"] .form-info-limit {
+    color: #ffb4b4;
+}
+
+:root[data-theme="dark"] .form-info-warning {
+    color: #ffd28a;
+}
+
+/* Featured project custom element */
+project-highlight {
+    background-color: var(--card-color);
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.7em 1.2em;
+    background-color: #ffffff;
+    color: #17365d;
+    border: 2px solid #ffffff;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Preserve HTML hidden behavior */
+#theme-toggle[hidden] {
+    display: none;
+}
+
+#theme-toggle:hover {
+    background-color: #dbeafe;
+}
+
+#theme-toggle:focus-visible {
+    outline: 3px solid #ef9b28;
+    outline-offset: 4px;
+}
