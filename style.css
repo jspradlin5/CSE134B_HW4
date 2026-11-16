@@ -1,7 +1,6 @@
-
 /*
 Name: Jude Spradlin
-Repository: https://github.com/jspradlin5/CSE134B_HW3
+Repository: https://github.com/jspradlin5/CSE134B_HW4
 */
 
 /* CSS custom properties */
@@ -331,5 +330,66 @@ main {
 
     nav ul {
         width: 100%;
+    }
+}
+
+
+/* Homework 4: Contact form styling */
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-field label {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 0.35rem;
+    background-color: #ffffff;
+    color: var(--text-color);
+}
+
+/* Indicate required fields */
+.form-field input:required,
+.form-field textarea:required {
+    border-left: 4px solid var(--secondary-color);
+}
+
+/* Show invalid fields only after user interaction */
+.form-field input:user-invalid,
+.form-field textarea:user-invalid {
+    border-color: #b3261e;
+    border-left-color: #b3261e;
+    background-color: #fff2f2;
+}
+
+/* Show valid fields after user interaction */
+.form-field input:user-valid,
+.form-field textarea:user-valid {
+    border-color: #267d45;
+    border-left-color: #267d45;
+}
+
+/* Accessible keyboard focus */
+.form-field input:focus-visible,
+.form-field textarea:focus-visible {
+    outline: 3px solid #ef9b28;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .form-field input,
+    .form-field textarea {
+        max-width: 100%;
     }
 }
