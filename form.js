@@ -213,5 +213,24 @@ form.addEventListener("submit", function () {
     errorHistoryInput.value = JSON.stringify(form_errors);
 });
 
+
+/* Handle keyboard form submissions using Enter */
+form.addEventListener("keydown", function (event) {
+    // Only handle Enter in the name and email fields.
+    // Enter in the comments textarea should create a new line.
+    if (event.key !== "Enter" || event.isComposing || event.repeat) {
+        return;
+    }
+
+    if (event.target === nameInput || event.target === emailInput) {
+        // Prevent the browser's default implicit submission.
+        event.preventDefault();
+
+        // Trigger the existing submit button click handler.
+        // This records errors and preserves native validation.
+        submitButton.click();
+    }
+});
+
 // Initialize the information area.
 updateCharacterCount();
