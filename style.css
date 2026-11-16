@@ -540,3 +540,51 @@ project-highlight {
     outline: 3px solid #ef9b28;
     outline-offset: 4px;
 }
+
+
+/*
+Homework 4 - Part 4.2
+View Transitions
+*/
+
+/* Enable transitions between pages on the same website */
+@view-transition {
+    navigation: auto;
+}
+
+/* Customize the transition animation */
+::view-transition-old(root) {
+    animation: 0.25s ease-out both fade-out;
+}
+
+::view-transition-new(root) {
+    animation: 0.25s ease-in both fade-in;
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Respect reduced-motion accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.01ms;
+    }
+}
